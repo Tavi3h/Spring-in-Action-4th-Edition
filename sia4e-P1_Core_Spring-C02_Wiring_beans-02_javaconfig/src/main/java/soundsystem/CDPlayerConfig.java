@@ -12,7 +12,7 @@ public class CDPlayerConfig {
     }
     
     @Bean
-    public CDPlayer cdPlayer() {
-        return new CDPlayer(sgtPeppers());
+    public CDPlayer cdPlayer(CompactDisc compactDisc) {
+        return new CDPlayer(compactDisc);
     }
 }
