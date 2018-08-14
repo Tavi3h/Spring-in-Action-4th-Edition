@@ -15,8 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = CDPlayerConfig.class)
 public class CDPlayerTest {
 
-    // 获取换行符\r\n
-    final String lineSeparator = System.getProperty("line.separator");
+    private final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     @Rule
     public final SystemOutRule log = new SystemOutRule().enableLog();
@@ -35,6 +34,6 @@ public class CDPlayerTest {
     @Test
     public void play() {
         player.play();
-        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles" + lineSeparator, log.getLog());
+        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles" + LINE_SEPARATOR, log.getLog());
     }
 }

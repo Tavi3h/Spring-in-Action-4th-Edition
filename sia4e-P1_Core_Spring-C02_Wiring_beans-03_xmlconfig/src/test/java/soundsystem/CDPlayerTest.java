@@ -12,11 +12,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration("classpath:spring.xml")
 public class CDPlayerTest {
 
-    // 获取换行符\r\n
-    final String lineSeparator = System.getProperty("line.separator");
+    private final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     @Rule
     public final SystemOutRule log = new SystemOutRule().enableLog();
@@ -28,6 +27,11 @@ public class CDPlayerTest {
     private CompactDisc cd;
 
     @Test
+    public void playerShouldNotBeNull() {
+        assertNotNull(player);
+    }
+
+    @Test
     public void cdShouldNotBeNull() {
         assertNotNull(cd);
     }
@@ -35,6 +39,10 @@ public class CDPlayerTest {
     @Test
     public void play() {
         player.play();
-        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles" + lineSeparator, log.getLog());
+        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles" + LINE_SEPARATOR
+                + "-Track: Sgt. Pepper's Lonely Hearts Club Band" + LINE_SEPARATOR
+                + "-Track: With a Little Help from My Friends" + LINE_SEPARATOR + "-Track: Lucy in the Sky with Diamonds"
+                + LINE_SEPARATOR + "-Track: Getting Better" + LINE_SEPARATOR + "-Track: Fixing a Hole" + LINE_SEPARATOR,
+                log.getLog());
     }
 }
