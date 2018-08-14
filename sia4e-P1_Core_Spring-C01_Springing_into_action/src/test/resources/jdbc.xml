@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 声明dbManager -->
+    <bean id="dbManager" class="sia.jdbc.util.DBManager">
+        <!-- 配置数据库连接四要素 -->
+        <constructor-arg name="classPath" value="com.mysql.jdbc.Driver" />
+        <constructor-arg name="username" value="root" />
+        <constructor-arg name="password" value="mysql" />
+        <constructor-arg name="url" value="jdbc:mysql://localhost:3306/test" />
+    </bean>
+
+    <!-- 声明queryUsingjdbc -->
+    <bean id="queryUsingjdbc" class="sia.jdbc.QueryUsingJdbc">
+        <!-- 注入dbManager -->
+        <property name="dbManager" ref="dbManager" />
+    </bean>
+</beans>

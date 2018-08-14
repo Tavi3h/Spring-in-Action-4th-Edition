@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 声明BraveKnight -->
+	<bean id="knight" class="sia.knights.BraveKnight">
+	    <!-- 通过构造函数注入SlayDragonQuest -->
+	    <constructor-arg ref="quest" />
+	</bean>
+
+    <!-- 声明SlayDragonQuest -->
+	<bean id="quest" class="sia.knights.SlayDragonQuest">
+	    <!-- 通过构造函数注入System.out --> 
+        <constructor-arg value="#{T(System).out}" />
+	</bean>
+</beans>

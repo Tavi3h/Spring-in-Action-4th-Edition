@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 声明jdbcTemplate -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!-- 注入数据源 -->
+        <property name="dataSource" ref="springDataSource" />
+    </bean>
+
+    <!-- 注册数据源：DriverManagerDataSource（Spring内置数据源） -->
+    <bean id="springDataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- 数据库连接四要素 -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/test" />
+        <property name="username" value="root" />
+        <property name="password" value="mysql" />
+    </bean>
+
+    <!-- 声明queryUsingJdbcTemplate -->
+    <bean id="queryUsingJdbcTemplate" class="sia.jdbc.QueryUsingJdbcTemplate">
+        <!-- 注入jbdc模板 -->
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+</beans>
