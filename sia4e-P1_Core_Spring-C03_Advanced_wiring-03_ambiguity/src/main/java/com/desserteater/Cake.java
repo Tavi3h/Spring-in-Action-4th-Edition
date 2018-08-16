@@ -2,7 +2,7 @@ package com.desserteater;
 
 import org.springframework.stereotype.Component;
 
-@Component("a")
+@Component
 public class Cake implements Dessert {
 
 }
