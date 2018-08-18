@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 声明Audience -->
+    <bean id="audience" class="concert.Audience" />
+
+    <!-- 声明DefaultEncoreable -->
+    <bean id="encorableDelegate" class="concert.DefaultEncoreable" />
+
+    <!-- 声明Performance的实现类 -->
+    <bean id="orchestra" class="concert.OrchestralPerformance" />
+
+    <!-- 声明CriticismEngineImpl -->
+    <bean id="criticismEngine" class="com.springinaction.springidol.CriticismEngineImpl">
+        <property name="criticismPool">
+            <list>
+                <value>Worst performance ever!</value>
+                <value>I laughed, I cried, then I realized I was at the wrong show.</value>
+                <value>A must see show!</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean class="concert.CriticAspect" factory-method="aspectOf">
+        <property name="criticismEngine" ref="criticismEngine" />
+    </bean>
+
+    <aop:config>
+        <!-- 声明切面，引用audience -->
+        <aop:aspect ref="audience">
+            <!-- 声明切点 -->
+            <aop:pointcut expression="execution(** concert.Performance.perform(..))"
+                id="performance" />
+            <!-- 声明环绕通知 -->
+            <aop:around method="watchPerformance" pointcut-ref="performance" />
+        </aop:aspect>
+
+        <aop:aspect>
+            <!-- 声明引入 -->
+            <aop:declare-parents types-matching="concert.Performance+"
+                implement-interface="concert.Encoreable" delegate-ref="encorableDelegate" />
+        </aop:aspect>
+    </aop:config>
+</beans>
