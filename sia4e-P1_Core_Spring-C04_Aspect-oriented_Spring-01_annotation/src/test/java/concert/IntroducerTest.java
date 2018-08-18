@@ -1,4 +1,4 @@
-package soundsystem;
+package concert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
