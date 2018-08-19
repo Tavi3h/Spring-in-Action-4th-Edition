@@ -25,9 +25,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
     
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
-    compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
-    
     // https://mvnrepository.com/artifact/aopalliance/aopalliance
     compile group: 'aopalliance', name: 'aopalliance', version: '1.0'
     
