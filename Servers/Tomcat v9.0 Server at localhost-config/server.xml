@@ -72,7 +72,7 @@
 				
 
 				
-			<Context docBase="sia4e-P2_Spring_on_the_web-C05_Building_Spring_web_applications" path="/sia4e-P2_Spring_on_the_web-C05_Building_Spring_web_applications" reloadable="true" source="org.eclipse.jst.jee.server:sia4e-P2_Spring_on_the_web-C05_Building_Spring_web_applications"/></Host>
+			</Host>
 		</Engine>
 	</Service>
 </Server>
