@@ -5,5 +5,3 @@
 <br />
 <c:out value="${spitter.firstName}" />
 <c:out value="${spitter.lastName}" />
-<br />
-<c:out value="${spitter.email}" />
