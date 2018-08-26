@@ -35,12 +35,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.9.RELEASE'
     
-    // https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl
-    compile group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
-    
-    // https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-spec
-    compile group: 'org.apache.taglibs', name: 'taglibs-standard-spec', version: '1.2.5'
-    
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     
