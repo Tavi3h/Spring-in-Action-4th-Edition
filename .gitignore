@@ -3,3 +3,4 @@
 /Servers/
 bin/
 .gradle/
+**/gradle.properties
