@@ -2,5 +2,6 @@
 /.recommenders/
 /Servers/
 bin/
+build/
 .gradle/
 **/gradle.properties
