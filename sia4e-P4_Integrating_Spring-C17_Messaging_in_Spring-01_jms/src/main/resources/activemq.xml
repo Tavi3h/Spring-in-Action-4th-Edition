@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jms="http://www.springframework.org/schema/jms"
+    xsi:schemaLocation="http://www.springframework.org/schema/jms 
+    http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+		http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory" />
+
+    <bean id="spittleQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="spittle.alert.queue" />
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <constructor-arg ref="connectionFactory" />
+        <property name="defaultDestination" ref="spittleQueue" />
+        <property name="messageConverter" ref="messageConverter" />
+    </bean>
+
+    <bean id="messageConverter"
+        class="org.springframework.jms.support.converter.MappingJackson2MessageConverter" />
+
+    <bean id="spittleHandler" class="spittr.alerts.SpittleAlertHandler" />
+
+    <jms:listener-container connection-factory="connectionFactory">
+        <jms:listener destination="spitter.alert.queue" ref="spittleHandler"
+            method="handleSpittleAlert" />
+    </jms:listener-container>
+    
+</beans>
