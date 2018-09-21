@@ -23,8 +23,21 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.9.RELEASE'
     
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.0'
+    
+    // https://mvnrepository.com/artifact/org.webjars.npm/sockjs-client
+    compile group: 'org.webjars.npm', name: 'sockjs-client', version: '1.1.5'
+    
+    // https://mvnrepository.com/artifact/org.webjars.npm/jquery
+    compile group: 'org.webjars.npm', name: 'jquery', version: '3.3.1'
+    
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.9.RELEASE'
+    
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+    
 }
 
 // In this section you declare where to find the dependencies of your project

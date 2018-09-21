@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<script th:src="@{/webjars/sockjs-client/1.1.5/dist/sockjs.js}"></script>
+<script th:src="@{/webjars/jquery/3.3.1/dist/jquery.js}"></script>
+</head>
+<body>
+	<button id="stop">Stop</button>
+	<script th:inline="javascript">
+	  var sock = new SockJS([[@{/marco}]]);
+	   
+      sock.onopen = function() {
+          console.log('Opening');
+          sayMarco();
+      }
+      
+      sock.onmessage = function(e) {
+          console.log('Received message: ', e.data);
+          $('#output').append('Received "' + e.data + '"<br/>');
+          setTimeout(function(){
+        	  sayMarco()
+       	  }, 2000);
+      }
+      
+      sock.onclose = function() {
+          console.log('Closing');
+      }
+      
+      function sayMarco() {
+          console.log('Sending Marco!');
+          $('#output').append('Sending "Marco!"<br/>');
+          sock.send("Marco!");
+      }
+      
+      $('#stop').click(function() {
+    	  sock.close()
+   	  });
+	</script>
+	
+    <div id="output"></div>
+</body>
+</html>

@@ -13,7 +13,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
     // 将MarcoHandler映射到“/marco”
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(marcoHandler(), "/marco");
+        registry.addHandler(marcoHandler(), "/marco").withSockJS();
     }
 
     // 声明MarcoHandler bean
