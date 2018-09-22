@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration status="info">
+
+    <properties>
+        <property name="log_pattern">
+            %d{yyyy-MM-dd HH:mm:ss} [%t] [%c{1}.%M()] %-5level - %msg%xEx%n
+        </property>
+    </properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="info" />
+            <PatternLayout pattern="${log_pattern}" />
+        </Console>
+    </appenders>
+    
+    <loggers>
+        <root level="info">
+            <appender-ref ref="Console" />
+        </root>
+    </loggers>
+</configuration>

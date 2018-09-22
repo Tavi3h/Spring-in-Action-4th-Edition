@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="sia4e-P4_Integrating_Spring-C18_Messaging_with_WebSocket_And_STOMP-02_stomp">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <property name="context-root" value="sia4e-P4_Integrating_Spring-C18_Messaging_with_WebSocket_And_STOMP-02_stomp"/>
+        <property name="java-output-path" value="/sia4e-P4_Integrating_Spring-C18_Messaging_with_WebSocket_And_STOMP-02_stomp/bin/default"/>
+    </wb-module>
+</project-modules>
